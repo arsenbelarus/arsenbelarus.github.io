@@ -1,5 +1,4 @@
 const gameStart = () => {
-  debugger;
   const pieces = [
     "whitepawn.png",
     "whitepawn.png",
@@ -43,7 +42,6 @@ const gameStart = () => {
   let isFirst = true;
   let lock = false;
   let pairs = pieces.length / 2;
-  let firstCardNumber;
 
   // 5 seconds to remember cards position
   const initialCardsOpening = () => {
@@ -91,7 +89,7 @@ const gameStart = () => {
 
       if (isFirst) {
         // first card opened
-
+        singleCard.style.pointerEvents = "none";
         isFirst = !isFirst;
         firstCardNumber = numberFromId;
         lock = false;
@@ -142,6 +140,7 @@ const gameStart = () => {
     document.getElementById(`card${firstCard}`).style.backgroundPosition =
       "center";
     document.getElementById(`card${firstCard}`).style.backgroundSize = "cover";
+    document.getElementById(`card${firstCard}`).style.pointerEvents = "auto";
     document.getElementById(`card${firstCard}`).setAttribute("class", "card");
 
     document.getElementById(`card${secondCard}`).style.background =
@@ -149,6 +148,7 @@ const gameStart = () => {
     document.getElementById(`card${secondCard}`).style.backgroundPosition =
       "center";
     document.getElementById(`card${secondCard}`).style.backgroundSize = "cover";
+    document.getElementById(`card${secondCard}`).style.pointerEvents = "auto";
     document.getElementById(`card${secondCard}`).setAttribute("class", "card");
 
     lock = false;
